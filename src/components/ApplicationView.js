@@ -3,6 +3,7 @@ import { Route } from "react-router-dom"
 import { GameProvider } from "./game/GameProvider"
 import { GameList } from "./game/GameList"
 import { GameForm } from "./game/GameForm"
+import { GameDetail } from "./game/GameDetail"
 
 
 export const ApplicationViews = (props) => {
@@ -12,6 +13,9 @@ export const ApplicationViews = (props) => {
                     <GameList {...props}/>
                 </Route>
                 <Route exact path="/games/new" render={props => <GameForm {...props} />} />
+                <Route path="/games/:gameId(\d+)" render={
+                            props => <GameDetail {...props} />
+                        } />
             </GameProvider>
     </>
 }
